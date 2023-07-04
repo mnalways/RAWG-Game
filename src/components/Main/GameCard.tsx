@@ -3,6 +3,7 @@ import { Game } from "./UseGame";
 import styles from "./Game.module.scss";
 import { PlatformIconList } from "./PlatformIconList";
 import { Critic } from "./Critic";
+import { getImageUrl } from "../../services/image-url";
 interface props {
     game: Game;
 }
@@ -11,7 +12,7 @@ export const GameCard = ({game}: props) => {
 
     return (
         <Card className={styles.card}>
-            <Image src={game.background_image}/>
+            <Image src={getImageUrl(game.background_image)}/>
             <CardBody>
                 <Heading className={styles.heading}>{game.name}</Heading>
                 <HStack justifyContent={'space-between'}>
