@@ -9,7 +9,7 @@ export const GameGrid = () => {
 
     return (
         <div>
-            <SimpleGrid columns={{sm:1, md:2, xl:3}}>
+            <SimpleGrid columns={{sm:1, md:2, xl:3}} spacing={"30px"}>
                 {games.map((game) => {
                     return (
                         <GameCard game={game}/>
