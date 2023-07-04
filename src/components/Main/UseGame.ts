@@ -24,17 +24,22 @@ export interface FetchGameResponse {
 export const Usegame = () => {
     const [games, setGames] = useState<Game[]>([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const controller = new AbortController();
+        setLoading(true);
         APIClient.get<FetchGameResponse>('/games', {signal: controller.signal}).then((res) => {
             setGames(res.data.results);
+            setLoading(false);
         }).catch((err) => {
             if (err.isInstanceOf(CanceledError)) return;
             setError(err.message);
+            setLoading(false);
         });
+
         return () => controller.abort();
     }, []);
 
-    return {games, error};
+    return {games, error, loading};
 }
