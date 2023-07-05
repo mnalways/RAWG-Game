@@ -3,7 +3,7 @@ import styles from "./Game.module.scss";
 export const GameCardSkeleton = () => {
     return (
         <Card>
-            <Skeleton height={'250px'} className={styles.card} width={'510px'}/>
+            <Skeleton height={'250px'} width={'510px'}/>
             <CardBody>
                 <SkeletonText />
             </CardBody>

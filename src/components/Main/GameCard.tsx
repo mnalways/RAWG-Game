@@ -11,7 +11,7 @@ interface props {
 export const GameCard = ({game}: props) => {
 
     return (
-        <Card className={styles.card}>
+        <Card>
             <Image src={getImageUrl(game.background_image)}/>
             <CardBody>
                 <Heading className={styles.heading}>{game.name}</Heading>
