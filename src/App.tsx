@@ -20,7 +20,7 @@ function App() {
     <NavBar />
   </GridItem>
   <Show above="lg">
-  <GridItem area={'aside'}>
+  <GridItem area={'aside'} marginX={5}>
     <GenereList />
   </GridItem>
   </Show> 
