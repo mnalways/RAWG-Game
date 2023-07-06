@@ -10,7 +10,7 @@ function App() {
     lg: `"nav nav" "aside main"`,
   }}
   // gridTemplateRows={'50px 1fr 30px'}
-  // gridTemplateColumns={'150px 1fr'}
+  templateColumns={{ base: '1fr', lg: '200px 1fr'}}
   // h='200px'
   gap=' 1' 
   // color='blackAlpha.700'
