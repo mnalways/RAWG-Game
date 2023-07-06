@@ -1,3 +1,4 @@
+import { Genre } from "../../Hooks/UseGenere";
 import { UseData } from "../../Hooks/useData";
 
 export interface Platform {
@@ -14,4 +15,4 @@ export interface Game {
     metacritic: number;
 }
 
-export const Usegame = () => UseData<Game>({endPoint: "/games"});
+export const Usegame = (selectedGenre: Genre | null) => UseData<Game>({endPoint: "/games", reqConfigObj:{params: {genres: selectedGenre?.id}}, dep: [selectedGenre?.id]});
