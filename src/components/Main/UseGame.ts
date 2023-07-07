@@ -15,4 +15,4 @@ export interface Game {
     metacritic: number;
 }
 
-export const Usegame = (selectedGenre: Genre | null) => UseData<Game>({endPoint: "/games", reqConfigObj:{params: {genres: selectedGenre?.id}}, dep: [selectedGenre?.id]});
+export const Usegame = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => UseData<Game>({endPoint: "/games", reqConfigObj:{params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, dep: [selectedGenre?.id, selectedPlatform?.id]});
