@@ -1,4 +1,4 @@
-import { Genre } from "../../Hooks/UseGenere";
+import { GameQuery } from "../../App";
 import { UseData } from "../../Hooks/useData";
 
 export interface Platform {
@@ -15,4 +15,4 @@ export interface Game {
     metacritic: number;
 }
 
-export const Usegame = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => UseData<Game>({endPoint: "/games", reqConfigObj:{params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, dep: [selectedGenre?.id, selectedPlatform?.id]});
+export const Usegame = (gameQuery: GameQuery) => UseData<Game>({endPoint: "/games", reqConfigObj:{params: {genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id}}, dep: [gameQuery.genre?.id, gameQuery.platform?.id]});
