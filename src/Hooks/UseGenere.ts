@@ -1,9 +1,9 @@
 import { UseData } from "./useData";
 
 export interface Genre {
-    id: number;
-    name: string;
-    image_background: string
+  id: number;
+  name: string;
+  image_background: string;
 }
 
-export const UseGenre = () => UseData<Genre>({endPoint: "/genres"});
+export const UseGenre = () => UseData<Genre>({ endPoint: "/genres" });
