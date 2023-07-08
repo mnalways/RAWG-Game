@@ -13,13 +13,13 @@ export const GameCard = ({ game }: props) => {
     <Card>
       <Image src={getImageUrl(game.background_image)} />
       <CardBody>
-        <Heading className={styles.heading}>{game.name}</Heading>
-        <HStack justifyContent={"space-between"}>
+        <HStack justifyContent={"space-between"} marginBottom={3}>
           <PlatformIconList
             platforms={game.parent_platforms?.map(({ platform }) => platform)}
           />
           <Critic score={game.metacritic} />
         </HStack>
+        <Heading className={styles.heading}>{game.name}</Heading>
       </CardBody>
     </Card>
   );
