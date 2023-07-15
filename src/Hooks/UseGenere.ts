@@ -1,4 +1,6 @@
-import { UseData } from "./useData";
+import { useQuery } from "@tanstack/react-query";
+import APIClient from "../services/api-clients";
+import { FetchResponse } from "./useData";
 
 export interface Genre {
   id: number;
@@ -6,4 +8,12 @@ export interface Genre {
   image_background: string;
 }
 
-export const UseGenre = () => UseData<Genre>({ endPoint: "/genres" });
+export const UseGenre = () => {
+  const endPoint = "/genres";
+  return useQuery({
+    queryFn: () =>
+      APIClient.get<FetchResponse<Genre>>(endPoint).then((res) => res.data),
+    queryKey: ["genres"],
+    staleTime: 1000 * 60 * 60 * 24,
+  });
+};

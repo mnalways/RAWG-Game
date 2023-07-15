@@ -16,17 +16,17 @@ interface props {
 }
 
 export const GenereList = ({ onSelect, selectedGenre }: props) => {
-  const { data, loading, error } = UseGenre();
+  const { data, isLoading, error } = UseGenre();
 
   if (error) return null;
-  if (loading) return <Spinner size={"xl"} />;
+  if (isLoading) return <Spinner size={"xl"} />;
   return (
     <>
       <Heading fontSize={"2xl"} marginBottom={3}>
         Genre
       </Heading>
       <List>
-        {data.map((gen) => {
+        {data?.results?.map((gen) => {
           return (
             <ListItem key={gen.id}>
               <HStack>
